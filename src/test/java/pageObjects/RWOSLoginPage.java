@@ -18,29 +18,23 @@ public class RWOSLoginPage extends BasePage{
 	@FindBy(xpath = "//*[@id='signIn']/span")
 	WebElement btnSignIn;
 
-	public WebElement getTxtUserName() {
-		return txtUserName;
-	}
+	public void enterUsername(String username) {
+        txtUserName.sendKeys(username);
+    }
 
-	public void setTxtUserName(WebElement txtUserName) {
-		this.txtUserName = txtUserName;
-	}
+    public void enterPassword(String password) {
+        txtPassword.sendKeys(password);
+    }
 
-	public WebElement getTxtPassword() {
-		return txtPassword;
-	}
+    public void clickLogin() {
+        btnSignIn.click();
+    }
 
-	public void setTxtPassword(WebElement txtPassword) {
-		this.txtPassword = txtPassword;
-	}
-
-	public WebElement getBtnSignIn() {
-		return btnSignIn;
-	}
-
-	public void setBtnSignIn(WebElement btnSignIn) {
-		this.btnSignIn = btnSignIn;
-	}
+    public void login(String username, String password) {
+        enterUsername(username);
+        enterPassword(password);
+        clickLogin();
+    }
 	
 	
 	
