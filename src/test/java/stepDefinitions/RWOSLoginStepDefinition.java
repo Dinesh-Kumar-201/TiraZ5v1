@@ -6,6 +6,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
+
+import factory.DriverManager;
 import io.cucumber.java.en.*;
 import pageObjects.RWOSLoginPage;
 
@@ -15,16 +17,17 @@ public class RWOSLoginStepDefinition {
 	RWOSLoginPage loginPage;
 	
 	public RWOSLoginStepDefinition() {
-		super(driver);	//this needs a fix, have to add drivermanager methods, hooks methods
-		loginPage = new RWOSLoginPage(driver);
+		driver = DriverManager.getDriver();
+		//not passing webdriver manually, instead the page class pulls it from base class
+		loginPage = new RWOSLoginPage();
 	}
 	
 	@Given("User is on login page")
 	public void user_is_on_login_page() {
-	    driver = new ChromeDriver();
-	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	    //driver = new ChromeDriver();
+	    //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	    driver.get("https://sit-rwos.netmeds.com/rwos/#/login");
-	    driver.manage().window().maximize();
+	    //driver.manage().window().maximize();
 	}
 
 	@When("User enters {string} and {string}")

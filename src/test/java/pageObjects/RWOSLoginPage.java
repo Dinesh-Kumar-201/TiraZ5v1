@@ -3,11 +3,12 @@ package pageObjects;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
+/*
+ * Page Object class for the login page
+ * Inherits from BasePage, so it automatically gets the driver and element initialization
+ */
+
 public class RWOSLoginPage extends BasePage{
-	
-	public RWOSLoginPage(WebDriver driver) {
-		super(driver);
-	}
 	
 	@FindBy(xpath = "//input[@id='userName']")
 	WebElement txtUserName;
